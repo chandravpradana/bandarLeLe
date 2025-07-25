@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pelaporan Pakan Ikan - bandarLeLe.ID</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+        <span id="theme-label">Mode Gelap</span>
+        <label class="switch">
+            <input type="checkbox" id="themeSwitch">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
+        <div class="logo">
+            <i class="fas fa-fish"></i>
+            <h1>bandarLeLe.ID</h1>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="content">
+        <section class="hero slide-in">
+            <h1>Sistem Pelaporan Pakan Ikan Terintegrasi</h1>
+            <p>Manajemen pemberian pakan yang optimal dengan notifikasi real-time ke Telegram</p>
+            <div class="features">
+                <div class="feature-card fade-in" style="animation-delay: 0.2s">
+                    <i class="fas fa-clipboard-check"></i>
+                    <h3>Pelaporan Akurat</h3>
+                    <p>Catat setiap pemberian pakan dengan detail waktu, jenis, dan jumlah</p>
+                </div>
+                <div class="feature-card fade-in" style="animation-delay: 0.4s">
+                    <i class="fab fa-telegram"></i>
+                    <h3>Notifikasi Telegram</h3>
+                    <p>Dapatkan pemberitahuan langsung ke grup Telegram setiap laporan</p>
+                </div>
+                <div class="feature-card fade-in" style="animation-delay: 0.6s">
+                    <i class="fas fa-history"></i>
+                    <h3>Riwayat Lengkap</h3>
+                    <p>Akses sejarah pemberian pakan kapan saja untuk evaluasi</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics -->
+        <div class="stats-container fade-in">
+            <div class="stat-card">
+                <i class="fas fa-water"></i>
+                <h3>4</h3>
+                <p>Kolam Aktif</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-utensils"></i>
+                <h3>28</h3>
+                <p>Laporan Minggu Ini</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-weight"></i>
+                <h3>5.6 Kg</h3>
+                <p>Total Pakan</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-users"></i>
+                <h3>3</h3>
+                <p>Pelaksana</p>
+            </div>
+        </div>
+
+        <!-- Feeding Form Section -->
+        <section class="feeding-form fade-in">
+            <h2>Laporan Pemberian Pakan</h2>
+            <form class="feed-form" name="submit-to-google-sheet">
+                <div class="form-group">
+                    <label for="kolam"><i class="fas fa-water"></i> Kolam</label>
+                    <i class="fas fa-water"></i>
+                    <select id="kolam" name="kolam" required>
+                        <option value="">Pilih Kolam</option>
+                        <option value="Kolam Bundar 1">Kolam Bundar 1</option>
+                        <option value="Kolam Bundar 2">Kolam Bundar 2</option>
+                        <option value="Kolam Persegi 1">Kolam Persegi 1</option>
+                        <option value="Kolam Persegi 2">Kolam Persegi 2</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tanggal"><i class="far fa-calendar"></i> Tanggal</label>
+                    <i class="far fa-calendar"></i>
+                    <input type="date" id="tanggal" name="tanggal" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="waktu"><i class="far fa-clock"></i> Waktu</label>
+                    <i class="far fa-clock"></i>
+                    <input type="time" id="waktu" name="waktu" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="jenis-pakan"><i class="fas fa-utensils"></i> Jenis Pakan</label>
+                    <i class="fas fa-utensils"></i>
+                    <select id="jenis-pakan" name="jenispakan" required>
+                        <option value="">Pilih Jenis Pakan</option>
+                        <option value="Pelet Besar">Pelet Besar</option>
+                        <option value="Pelet Sedang">Pelet Sedang</option>
+                        <option value="Pelet Kecil">Pelet Kecil</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="jumlah"><i class="fas fa-weight"></i> Jumlah (gram)</label>
+                    <i class="fas fa-weight"></i>
+                    <input type="number" id="jumlah" name="jumlah" min="1" placeholder="Masukkan jumlah pakan" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pelaksana"><i class="fas fa-user"></i> Pelaksana</label>
+                    <i class="fas fa-user"></i>
+                    <select id="pelaksana" name="pelaksana" required>
+                        <option value="">Pilih Pelaksana</option>
+                        <option value="Chandra">Chandra</option>
+                        <option value="Dany">Dany</option>
+                        <option value="Mas Doni">Mas Doni</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Kirim Laporan & Notifikasi
+                </button>
+            </form>
+        </section>
+        
+        <!-- Telegram Integration -->
+        <section class="telegram-integration fade-in">
+            <h3><i class="fab fa-telegram"></i> Integrasi Telegram</h3>
+            <p>Semua laporan pemberian pakan akan dikirim ke grup Telegram secara otomatis</p>
+            
+            <div class="qr-code">
+                <i class="fab fa-telegram"></i>
+                <span>bandarLeLe.ID</span>
+            </div>
+            
+            <p>Scan QR code untuk bergabung dengan grup pelaporan</p>
+            <p>ID Grup: <strong>bandarLeLe_ID</strong></p>
+        </section>
+        
+        <!-- History Section -->
+        <section class="history-section fade-in">
+            <h2>Riwayat Pemberian Pakan</h2>
+            <div class="history-table-container">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Tanggal</th>
+                            <th>Waktu</th>
+                            <th>Kolam</th>
+                            <th>Jenis Pakan</th>
+                            <th>Jumlah (gram)</th>
+                            <th>Pelaksana</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Soon</td>
+                            <td>Soon</td>
+                            <td>Soon</td>
+                            <td>Soon</td>
+                            <td>Soon</td>
+                            <td>Soon</td>
+                            <td><span class="status status-selesai">Coming Soon</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 bandarLeLe.ID - Sistem Pelaporan Pakan Ikan</p>
+        <div>
+            <a href="#"><i class="fas fa-info-circle"></i> Tentang Kami</a>
+            <a href="#"><i class="fas fa-envelope"></i> Kontak</a>
+            <a href="#"><i class="fas fa-shield-alt"></i> Privasi</a>
+        </div>
+        <p>DSN SEDATI 001/001, Kauman, Ngoro, Jombang | Telp: 081234567890</p>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/6281234567890" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
